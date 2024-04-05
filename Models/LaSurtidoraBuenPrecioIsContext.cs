@@ -53,12 +53,9 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
-    public virtual DbSet<Usuarios2> Usuarios2s { get; set; }
-
     public virtual DbSet<Venta> Ventas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
-
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -581,36 +578,6 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
                 .HasForeignKey<Usuario>(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Usuario_Credenciales");
-        });
-
-        modelBuilder.Entity<Usuarios2>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__auth_use__3213E83FE026025E");
-
-            entity.ToTable("Usuarios2");
-
-            entity.HasIndex(e => e.Username, "auth_user_username_6821ab7c_uniq").IsUnique();
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.DateJoined).HasColumnName("date_joined");
-            entity.Property(e => e.Email)
-                .HasMaxLength(254)
-                .HasColumnName("email");
-            entity.Property(e => e.FirstName)
-                .HasMaxLength(150)
-                .HasColumnName("first_name");
-            entity.Property(e => e.IsActive).HasColumnName("is_active");
-            entity.Property(e => e.IsStaff).HasColumnName("is_staff");
-            entity.Property(e => e.LastLogin).HasColumnName("last_login");
-            entity.Property(e => e.LastName)
-                .HasMaxLength(150)
-                .HasColumnName("last_name");
-            entity.Property(e => e.Password)
-                .HasMaxLength(128)
-                .HasColumnName("password");
-            entity.Property(e => e.Username)
-                .HasMaxLength(150)
-                .HasColumnName("username");
         });
 
         modelBuilder.Entity<Venta>(entity =>

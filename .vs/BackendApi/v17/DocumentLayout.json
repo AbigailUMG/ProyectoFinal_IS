@@ -11,16 +11,20 @@
       "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\.gitignore||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:.gitignore||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\models\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\controllers\\medidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,11 +46,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-05T16:36:33.268Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "CategoriasController.cs",
               "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Controllers\\CategoriasController.cs",
               "RelativeDocumentMoniker": "Controllers\\CategoriasController.cs",
@@ -54,12 +70,11 @@
               "RelativeToolTip": "Controllers\\CategoriasController.cs",
               "ViewState": "AQIAADUAAAAAAAAAAAAAAEcAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-29T04:11:44.127Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-29T04:11:44.127Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "BackendApi.csproj",
               "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\BackendApi.csproj",
               "RelativeDocumentMoniker": "BackendApi.csproj",
@@ -77,14 +92,14 @@
               "RelativeDocumentMoniker": "Models\\LaSurtidoraBuenPrecioIsContext.cs",
               "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\LaSurtidoraBuenPrecioIsContext.cs",
               "RelativeToolTip": "Models\\LaSurtidoraBuenPrecioIsContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-28T20:35:19.331Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Categoria.cs",
               "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\Categoria.cs",
               "RelativeDocumentMoniker": "Models\\Categoria.cs",
@@ -92,12 +107,11 @@
               "RelativeToolTip": "Models\\Categoria.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAgwBoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-30T02:33:59.941Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-30T02:33:59.941Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Venta.cs",
               "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\Venta.cs",
               "RelativeDocumentMoniker": "Models\\Venta.cs",
@@ -105,8 +119,7 @@
               "RelativeToolTip": "Models\\Venta.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-29T04:02:46.884Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-29T04:02:46.884Z"
             },
             {
               "$type": "Document",
@@ -116,14 +129,13 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAAAaAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-29T03:14:50.296Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-29T03:14:50.296Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MedidaController.cs",
               "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Controllers\\MedidaController.cs",
               "RelativeDocumentMoniker": "Controllers\\MedidaController.cs",
@@ -135,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
