@@ -57,7 +57,8 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
 
     public virtual DbSet<Venta> Ventas { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){ }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -154,12 +155,18 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.Property(e => e.IdCredenciales)
                 .ValueGeneratedNever()
                 .HasColumnName("id_credenciales");
+            entity.Property(e => e.Estado).HasColumnName("estado");
+            entity.Property(e => e.FkRol).HasColumnName("fk_rol");
             entity.Property(e => e.Password)
                 .HasMaxLength(25)
                 .HasColumnName("password");
             entity.Property(e => e.Username)
                 .HasMaxLength(50)
                 .HasColumnName("username");
+
+            entity.HasOne(d => d.FkRolNavigation).WithMany(p => p.Credenciales)
+                .HasForeignKey(d => d.FkRol)
+                .HasConstraintName("FK_Credenciales_Rol");
         });
 
         modelBuilder.Entity<DetalleCompra>(entity =>
@@ -545,17 +552,10 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
                 .ValueGeneratedOnAdd()
                 .HasComment("Identificador único para cada empleado.")
                 .HasColumnName("ID_usuario");
-            entity.Property(e => e.Activo)
-                .HasMaxLength(10)
-                .IsFixedLength()
-                .HasColumnName("activo");
             entity.Property(e => e.Email)
                 .HasComment("Cualquier otro nombre del empleado.")
                 .HasColumnName("email");
             entity.Property(e => e.FechaRegistro).HasColumnName("fecha_registro");
-            entity.Property(e => e.FkRol)
-                .HasComment("Llave foránea que se relaciona con el puesto al que pertenece el empleado.")
-                .HasColumnName("fk_rol");
             entity.Property(e => e.OtrosNombres)
                 .HasMaxLength(50)
                 .HasComment("Cualquier otro nombre del empleado.")
@@ -576,10 +576,6 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
                 .HasMaxLength(30)
                 .HasComment("El segundo apellido del empleado.")
                 .HasColumnName("segundo_nombre");
-
-            entity.HasOne(d => d.FkRolNavigation).WithMany(p => p.Usuarios)
-                .HasForeignKey(d => d.FkRol)
-                .HasConstraintName("FK_Usuario_Rol");
 
             entity.HasOne(d => d.IdUsuarioNavigation).WithOne(p => p.Usuario)
                 .HasForeignKey<Usuario>(d => d.IdUsuario)

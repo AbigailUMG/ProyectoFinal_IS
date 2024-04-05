@@ -42,16 +42,7 @@ public partial class Usuario
 
     public DateTimeOffset? FechaRegistro { get; set; }
 
-    public string? Activo { get; set; }
-
-    /// <summary>
-    /// Llave foránea que se relaciona con el puesto al que pertenece el empleado.
-    /// </summary>
-    public int? FkRol { get; set; }
-
     public virtual ICollection<Compra> Compras { get; set; } = new List<Compra>();
-
-    public virtual Rol? FkRolNavigation { get; set; }
 
     public virtual Credenciale IdUsuarioNavigation { get; set; } = null!;
 

@@ -11,5 +11,11 @@ public partial class Credenciale
 
     public int IdCredenciales { get; set; }
 
+    public bool? Estado { get; set; }
+
+    public int? FkRol { get; set; }
+
+    public virtual Rol? FkRolNavigation { get; set; }
+
     public virtual Usuario? Usuario { get; set; }
 }

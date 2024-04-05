@@ -20,5 +20,5 @@ public partial class Rol
     /// </summary>
     public string? Detalles { get; set; }
 
-    public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
+    public virtual ICollection<Credenciale> Credenciales { get; set; } = new List<Credenciale>();
 }
