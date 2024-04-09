@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -20,5 +21,6 @@ public partial class Rol
     /// </summary>
     public string? Detalles { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Credenciale> Credenciales { get; set; } = new List<Credenciale>();
 }

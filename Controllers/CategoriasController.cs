@@ -72,6 +72,8 @@ namespace BackendApi.Controllers
         public IActionResult Guardar([FromBody] Categoria categoria)
         {
 
+            Console.WriteLine("Otravezestoaqui");
+
             try
             {
                 _DBLaSurtidora.Categorias.Add(categoria);
@@ -99,10 +101,9 @@ namespace BackendApi.Controllers
             }
             try
             {
+                
                 OCategoria.Descripcion = categoria.Descripcion is null ? OCategoria.Descripcion: categoria.Descripcion;
                 OCategoria.NombreCategoria = categoria.NombreCategoria is null ? OCategoria.NombreCategoria : categoria.NombreCategoria;
-
-
 
                 _DBLaSurtidora.Categorias.Update(OCategoria);
                 _DBLaSurtidora.SaveChanges();

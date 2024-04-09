@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -42,11 +43,12 @@ public partial class Usuario
 
     public DateTimeOffset? FechaRegistro { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Compra> Compras { get; set; } = new List<Compra>();
 
-    public virtual Credenciale IdUsuarioNavigation { get; set; } = null!;
+    [JsonIgnore]
+    public virtual Credenciale? Credenciale { get; set; }
 
-    public virtual ICollection<ListadoPedido> ListadoPedidos { get; set; } = new List<ListadoPedido>();
-
+    [JsonIgnore]
     public virtual ICollection<Venta> Venta { get; set; } = new List<Venta>();
 }

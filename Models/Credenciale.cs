@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -15,7 +16,9 @@ public partial class Credenciale
 
     public int? FkRol { get; set; }
 
+    [JsonIgnore]
     public virtual Rol? FkRolNavigation { get; set; }
 
-    public virtual Usuario? Usuario { get; set; }
+    [JsonIgnore]
+    public virtual Usuario IdCredencialesNavigation { get; set; } = null!;
 }

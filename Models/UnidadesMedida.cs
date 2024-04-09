@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -20,5 +21,6 @@ public partial class UnidadesMedida
     /// </summary>
     public string Prefijo { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual ICollection<Producto> Productos { get; set; } = new List<Producto>();
 }

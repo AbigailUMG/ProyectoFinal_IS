@@ -62,8 +62,6 @@ public partial class Producto
 
     public virtual ICollection<DetalleCompra> DetalleCompras { get; set; } = new List<DetalleCompra>();
 
-    public virtual ICollection<DetalleListadoDePedido> DetalleListadoDePedidos { get; set; } = new List<DetalleListadoDePedido>();
-
     public virtual ICollection<DetalleVenta> DetalleVenta { get; set; } = new List<DetalleVenta>();
 
     public virtual Categoria FkCategoriaNavigation { get; set; } = null!;

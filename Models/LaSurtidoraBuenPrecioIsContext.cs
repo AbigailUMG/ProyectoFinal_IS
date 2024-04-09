@@ -25,13 +25,9 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
 
     public virtual DbSet<DetalleCompra> DetalleCompras { get; set; }
 
-    public virtual DbSet<DetalleListadoDePedido> DetalleListadoDePedidos { get; set; }
-
     public virtual DbSet<DetalleVenta> DetalleVentas { get; set; }
 
     public virtual DbSet<Inventario> Inventarios { get; set; }
-
-    public virtual DbSet<ListadoPedido> ListadoPedidos { get; set; }
 
     public virtual DbSet<Marca> Marcas { get; set; }
 
@@ -56,6 +52,7 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
     public virtual DbSet<Venta> Ventas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -164,6 +161,11 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.HasOne(d => d.FkRolNavigation).WithMany(p => p.Credenciales)
                 .HasForeignKey(d => d.FkRol)
                 .HasConstraintName("FK_Credenciales_Rol");
+
+            entity.HasOne(d => d.IdCredencialesNavigation).WithOne(p => p.Credenciale)
+                .HasForeignKey<Credenciale>(d => d.IdCredenciales)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Credenciales_Usuario");
         });
 
         modelBuilder.Entity<DetalleCompra>(entity =>
@@ -204,36 +206,6 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.HasOne(d => d.FkProductoNavigation).WithMany(p => p.DetalleCompras)
                 .HasForeignKey(d => d.FkProducto)
                 .HasConstraintName("FK_Detalle_compra_Productos");
-        });
-
-        modelBuilder.Entity<DetalleListadoDePedido>(entity =>
-        {
-            entity.HasKey(e => e.IdLsDetalleProducto);
-
-            entity.ToTable("Detalle_listado_de_pedidos", tb => tb.HasComment("Identificador único para cada detalle de pedido."));
-
-            entity.Property(e => e.IdLsDetalleProducto)
-                .HasComment("Identificador único para cada tipo de presentación.")
-                .HasColumnName("ID_ls_detalle_producto");
-            entity.Property(e => e.CantidadAComprar)
-                .HasComment(" La cantidad del producto que se va a comprar.")
-                .HasColumnName("Cantidad_a_comprar");
-            entity.Property(e => e.FkListadoPedido)
-                .HasComment("Llave foránea que se relaciona con el listado de pedidos al que pertenece el detalle.")
-                .HasColumnName("fk_listado_pedido");
-            entity.Property(e => e.FkProducto3)
-                .HasComment("Llave foránea que se relaciona con el producto pedido.")
-                .HasColumnName("fk_Producto3");
-
-            entity.HasOne(d => d.FkListadoPedidoNavigation).WithMany(p => p.DetalleListadoDePedidos)
-                .HasForeignKey(d => d.FkListadoPedido)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Detalle_listado_de_pedidos_Listado_pedidos");
-
-            entity.HasOne(d => d.FkProducto3Navigation).WithMany(p => p.DetalleListadoDePedidos)
-                .HasForeignKey(d => d.FkProducto3)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Detalle_listado_de_pedidos_Productos");
         });
 
         modelBuilder.Entity<DetalleVenta>(entity =>
@@ -299,30 +271,6 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.HasOne(d => d.FkProducto2Navigation).WithMany(p => p.Inventarios)
                 .HasForeignKey(d => d.FkProducto2)
                 .HasConstraintName("FK_Inventario_Productos");
-        });
-
-        modelBuilder.Entity<ListadoPedido>(entity =>
-        {
-            entity.HasKey(e => e.IdListado);
-
-            entity.ToTable("Listado_pedidos");
-
-            entity.Property(e => e.IdListado)
-                .HasComment("Identificador único para cada listado de pedidos.")
-                .HasColumnName("ID_listado");
-            entity.Property(e => e.Estado).HasComment("El estado del listado de pedidos. puede ser completado, en proceso, en espera ente otras");
-            entity.Property(e => e.FKEmpleado)
-                .HasComment("Llave foránea que se relaciona con el empleado que creó el listado.")
-                .HasColumnName("fK_empleado");
-            entity.Property(e => e.FechaCreacion)
-                .HasComment("La fecha en que se creó el listado de pedidos.")
-                .HasColumnType("date")
-                .HasColumnName("Fecha_creacion");
-
-            entity.HasOne(d => d.FKEmpleadoNavigation).WithMany(p => p.ListadoPedidos)
-                .HasForeignKey(d => d.FKEmpleado)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Listado_pedidos_Empleados");
         });
 
         modelBuilder.Entity<Marca>(entity =>
@@ -546,7 +494,6 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.ToTable("Usuario");
 
             entity.Property(e => e.IdUsuario)
-                .ValueGeneratedOnAdd()
                 .HasComment("Identificador único para cada empleado.")
                 .HasColumnName("ID_usuario");
             entity.Property(e => e.Email)
@@ -573,11 +520,6 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
                 .HasMaxLength(30)
                 .HasComment("El segundo apellido del empleado.")
                 .HasColumnName("segundo_nombre");
-
-            entity.HasOne(d => d.IdUsuarioNavigation).WithOne(p => p.Usuario)
-                .HasForeignKey<Usuario>(d => d.IdUsuario)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Usuario_Credenciales");
         });
 
         modelBuilder.Entity<Venta>(entity =>
