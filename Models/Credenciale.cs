@@ -16,9 +16,11 @@ public partial class Credenciale
 
     public int? FkRol { get; set; }
 
+    public int? FkUsuario { get; set; }
+
     [JsonIgnore]
     public virtual Rol? FkRolNavigation { get; set; }
 
     [JsonIgnore]
-    public virtual Usuario IdCredencialesNavigation { get; set; } = null!;
+    public virtual Usuario? FkUsuarioNavigation { get; set; }
 }

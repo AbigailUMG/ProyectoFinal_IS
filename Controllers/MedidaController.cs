@@ -67,6 +67,85 @@ namespace BackendApi.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("Guardar")]
+        public IActionResult Guardar([FromBody] UnidadesMedida medida)
+        {
+
+            try
+            {
+                _DBLaSurtidora.UnidadesMedidas.Add(medida);
+                _DBLaSurtidora.SaveChanges();
+
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato Guardado Exitosamente" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+            }
+
+        }
+
+        [HttpPut]
+        [Route("Editar")]
+        public IActionResult Editar([FromBody] UnidadesMedida medida)
+        {
+
+            UnidadesMedida OMedida = _DBLaSurtidora.UnidadesMedidas.Find(medida.IdMedicion);
+
+
+            if (OMedida == null)
+            {
+                return BadRequest("Medida no encontrado");
+            }
+            try
+            {
+
+                OMedida.Descripcion = medida.Descripcion is null ? OMedida.Descripcion : medida.Descripcion;
+                OMedida.Prefijo = medida.Prefijo is null ? OMedida.Prefijo : medida.Prefijo;
+
+                _DBLaSurtidora.UnidadesMedidas.Update(OMedida);
+                _DBLaSurtidora.SaveChanges();
+
+
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Unidad de Medidas Editado Exitosamente" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+            }
+        }
+
+
+        [HttpDelete]
+        [Route("Eliminar/{IdMedida:int}")]
+
+        public IActionResult Eliminar(int IdMedida)
+        {
+            UnidadesMedida OMedida = _DBLaSurtidora.UnidadesMedidas.Find(IdMedida);
+
+            if (OMedida == null)
+            {
+                return BadRequest("Unidad de Medida no encontrado");
+            }
+
+            try
+            {
+                _DBLaSurtidora.UnidadesMedidas.Remove(OMedida);
+                _DBLaSurtidora.SaveChanges();
+
+
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Unidad Medida eliminado exitosamente" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+            }
+
+        }
+
+
+
 
 
 

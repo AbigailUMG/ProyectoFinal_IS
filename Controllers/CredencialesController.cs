@@ -72,7 +72,6 @@ namespace BackendApi.Controllers
         [Route("Guardar")]
         public IActionResult Guardar([FromBody] Credenciale credenciales)
         {
-
             Console.WriteLine("Otravezestoaqui");
 
             try
@@ -80,14 +79,20 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.Credenciales.Add(credenciales);
                 _DBLaSurtidora.SaveChanges();
 
+                Console.WriteLine(credenciales);
+
                 return StatusCode(StatusCodes.Status200OK, new { mensaje = "Credenciales Guardado Exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
-            }
+                // Agregar registros de depuración para imprimir la excepción interna
+                Console.WriteLine("Error al guardar credenciales: " + ex.ToString());
 
+                // Devolver un código de estado 500 para indicar un error interno del servidor
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error interno del servidor al guardar credenciales" });
+            }
         }
+
 
         [HttpPut]
         [Route("Editar")]

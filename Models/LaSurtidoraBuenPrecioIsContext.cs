@@ -52,8 +52,6 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
     public virtual DbSet<Venta> Ventas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
-
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Caja>(entity =>
@@ -146,11 +144,10 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
         {
             entity.HasKey(e => e.IdCredenciales);
 
-            entity.Property(e => e.IdCredenciales)
-                .ValueGeneratedNever()
-                .HasColumnName("id_credenciales");
+            entity.Property(e => e.IdCredenciales).HasColumnName("id_credenciales");
             entity.Property(e => e.Estado).HasColumnName("estado");
             entity.Property(e => e.FkRol).HasColumnName("fk_rol");
+            entity.Property(e => e.FkUsuario).HasColumnName("fk_usuario");
             entity.Property(e => e.Password)
                 .HasMaxLength(25)
                 .HasColumnName("password");
@@ -162,9 +159,8 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
                 .HasForeignKey(d => d.FkRol)
                 .HasConstraintName("FK_Credenciales_Rol");
 
-            entity.HasOne(d => d.IdCredencialesNavigation).WithOne(p => p.Credenciale)
-                .HasForeignKey<Credenciale>(d => d.IdCredenciales)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+            entity.HasOne(d => d.FkUsuarioNavigation).WithMany(p => p.Credenciales)
+                .HasForeignKey(d => d.FkUsuario)
                 .HasConstraintName("FK_Credenciales_Usuario");
         });
 
@@ -499,7 +495,9 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.Property(e => e.Email)
                 .HasComment("Cualquier otro nombre del empleado.")
                 .HasColumnName("email");
-            entity.Property(e => e.FechaRegistro).HasColumnName("fecha_registro");
+            entity.Property(e => e.FechaRegistro)
+                .HasColumnType("datetime")
+                .HasColumnName("fecha_registro");
             entity.Property(e => e.OtrosNombres)
                 .HasMaxLength(50)
                 .HasComment("Cualquier otro nombre del empleado.")

@@ -72,8 +72,6 @@ namespace BackendApi.Controllers
         public IActionResult Guardar([FromBody] Categoria categoria)
         {
 
-            Console.WriteLine("Otravezestoaqui");
-
             try
             {
                 _DBLaSurtidora.Categorias.Add(categoria);
