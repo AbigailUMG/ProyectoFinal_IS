@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -40,5 +41,6 @@ public partial class Proveedore
     /// </summary>
     public string? Descripcion { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Compra> Compras { get; set; } = new List<Compra>();
 }

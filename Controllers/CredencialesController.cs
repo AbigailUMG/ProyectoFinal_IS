@@ -72,7 +72,7 @@ namespace BackendApi.Controllers
         [Route("Guardar")]
         public IActionResult Guardar([FromBody] Credenciale credenciales)
         {
-            Console.WriteLine("Otravezestoaqui");
+
 
             try
             {
@@ -122,6 +122,10 @@ namespace BackendApi.Controllers
                 return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
             }
         }
+
+
+
+
 
 
 

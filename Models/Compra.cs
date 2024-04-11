@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -37,11 +38,15 @@ public partial class Compra
 
     public decimal? Total { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<DetalleCompra> DetalleCompras { get; set; } = new List<DetalleCompra>();
 
+    [JsonIgnore]
     public virtual MetodosPago? FkMetodoPagoNavigation { get; set; }
 
+    [JsonIgnore]
     public virtual Proveedore? FkProveedorNavigation { get; set; }
 
+    [JsonIgnore]
     public virtual Usuario? FkUsuarioNavigation { get; set; }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -42,9 +43,12 @@ public partial class Usuario
 
     public DateTime? FechaRegistro { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Compra> Compras { get; set; } = new List<Compra>();
 
+    [JsonIgnore]
     public virtual ICollection<Credenciale> Credenciales { get; set; } = new List<Credenciale>();
 
+    [JsonIgnore]
     public virtual ICollection<Venta> Venta { get; set; } = new List<Venta>();
 }
