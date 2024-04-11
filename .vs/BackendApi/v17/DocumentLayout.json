@@ -1,45 +1,45 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\",
+  "WorkspaceRootPath": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\models\\credenciale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\credenciale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\models\\unidadesmedida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\unidadesmedida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\ingeniera de software\\prueba api\\proyecto final is\\proyectofinal_is\\controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\controllers\\credencialescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\ingeniera de software\\prueba api\\proyecto final is\\proyectofinal_is\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\ingeniera de software\\prueba api\\proyecto final is\\proyectofinal_is\\models\\credenciale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\credenciale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\ingeniera de software\\prueba api\\proyecto final is\\proyectofinal_is\\models\\unidadesmedida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\unidadesmedida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\ingeniera de software\\prueba api\\proyecto final is\\proyectofinal_is\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\ingeniera de software\\prueba api\\proyecto final is\\proyectofinal_is\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\ingeniera de software\\prueba api\\proyecto final is\\proyectofinal_is\\controllers\\credencialescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:controllers\\credencialescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\models\\lasurtidorabuenprecioiscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\ingeniera de software\\prueba api\\proyecto final is\\proyectofinal_is\\models\\lasurtidorabuenprecioiscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:models\\lasurtidorabuenprecioiscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\ingeniera de software\\prueba api\\proyecto final is\\proyectofinal_is\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\users\\alfredo aj\u00F9\\onedrive\\escritorio\\carpeta abi\\semestre siete\\base de datos 2\\backendapi\\controllers\\medidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|c:\\ingeniera de software\\prueba api\\proyecto final is\\proyectofinal_is\\controllers\\medidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CA9D055-E87D-4AC1-8590-6692B4EF9183}|BackendApi.csproj|solutionrelative:controllers\\medidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -50,82 +50,79 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UnidadesMedida.cs",
-              "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\UnidadesMedida.cs",
-              "RelativeDocumentMoniker": "Models\\UnidadesMedida.cs",
-              "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\UnidadesMedida.cs",
-              "RelativeToolTip": "Models\\UnidadesMedida.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAiwBcAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T07:06:20.856Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Rol.cs",
-              "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\Rol.cs",
+              "DocumentMoniker": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Models\\Rol.cs",
               "RelativeDocumentMoniker": "Models\\Rol.cs",
-              "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\Rol.cs*",
-              "RelativeToolTip": "Models\\Rol.cs*",
+              "ToolTip": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Models\\Rol.cs",
+              "RelativeToolTip": "Models\\Rol.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAgwBcAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T07:06:14.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-10T07:06:14.145Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Categoria.cs",
-              "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\Categoria.cs",
+              "DocumentMoniker": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Models\\Categoria.cs",
               "RelativeDocumentMoniker": "Models\\Categoria.cs",
-              "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\Categoria.cs*",
-              "RelativeToolTip": "Models\\Categoria.cs*",
-              "ViewState": "AQIAABUAAAAAAAAAAAA9wBwAAAAEAAAA",
+              "ToolTip": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Models\\Categoria.cs",
+              "RelativeToolTip": "Models\\Categoria.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-10T07:05:07.061Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CategoriasController.cs",
+              "DocumentMoniker": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Controllers\\CategoriasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoriasController.cs",
+              "ToolTip": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Controllers\\CategoriasController.cs*",
+              "RelativeToolTip": "Controllers\\CategoriasController.cs*",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAkwBUAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T03:05:58.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
               "Title": "CredencialesController.cs",
-              "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Controllers\\CredencialesController.cs",
+              "DocumentMoniker": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Controllers\\CredencialesController.cs",
               "RelativeDocumentMoniker": "Controllers\\CredencialesController.cs",
-              "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Controllers\\CredencialesController.cs",
+              "ToolTip": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Controllers\\CredencialesController.cs",
               "RelativeToolTip": "Controllers\\CredencialesController.cs",
               "ViewState": "AQIAAEEAAAAAAAAAAAAwwE8AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T17:34:11.532Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T17:34:11.532Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "MedidaController.cs",
-              "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Controllers\\MedidaController.cs",
+              "DocumentMoniker": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Controllers\\MedidaController.cs",
               "RelativeDocumentMoniker": "Controllers\\MedidaController.cs",
-              "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Controllers\\MedidaController.cs",
+              "ToolTip": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Controllers\\MedidaController.cs",
               "RelativeToolTip": "Controllers\\MedidaController.cs",
               "ViewState": "AQIAAG4AAAAAAAAAAAAQwH0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T03:06:47.167Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-10T03:06:47.167Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Credenciale.cs",
-              "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\Credenciale.cs",
+              "DocumentMoniker": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Models\\Credenciale.cs",
               "RelativeDocumentMoniker": "Models\\Credenciale.cs",
-              "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\Credenciale.cs",
+              "ToolTip": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Models\\Credenciale.cs",
               "RelativeToolTip": "Models\\Credenciale.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAA5wBkAAAABAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAgwBkAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-10T05:29:04.275Z",
               "EditorCaption": ""
@@ -133,75 +130,50 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "UnidadesMedida.cs",
+              "DocumentMoniker": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Models\\UnidadesMedida.cs",
+              "RelativeDocumentMoniker": "Models\\UnidadesMedida.cs",
+              "ToolTip": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Models\\UnidadesMedida.cs",
+              "RelativeToolTip": "Models\\UnidadesMedida.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAiwBcAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T07:06:20.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\Usuario.cs",
+              "DocumentMoniker": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Models\\Usuario.cs",
               "RelativeToolTip": "Models\\Usuario.cs",
               "ViewState": "AQIAAA8AAAAAAAAAAAA5wC8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T15:50:50.199Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T15:50:50.199Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "LaSurtidoraBuenPrecioIsContext.cs",
-              "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\LaSurtidoraBuenPrecioIsContext.cs",
+              "DocumentMoniker": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Models\\LaSurtidoraBuenPrecioIsContext.cs",
               "RelativeDocumentMoniker": "Models\\LaSurtidoraBuenPrecioIsContext.cs",
-              "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Models\\LaSurtidoraBuenPrecioIsContext.cs",
+              "ToolTip": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Models\\LaSurtidoraBuenPrecioIsContext.cs",
               "RelativeToolTip": "Models\\LaSurtidoraBuenPrecioIsContext.cs",
               "ViewState": "AQIAACIAAAAAAAAAAAAhwDcAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-28T20:35:19.331Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-28T20:35:19.331Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Program.cs",
+              "DocumentMoniker": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Program.cs",
+              "ToolTip": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-29T03:14:50.296Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "86f059f2-3d46-4a7f-bc37-97164ebaa36e",
-        "Display": 0,
-        "X": 920,
-        "Y": 120,
-        "Width": 1036,
-        "Height": 484,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CategoriasController.cs",
-              "DocumentMoniker": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Controllers\\CategoriasController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CategoriasController.cs",
-              "ToolTip": "C:\\Users\\Alfredo Aj\u00F9\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\Controllers\\CategoriasController.cs",
-              "RelativeToolTip": "Controllers\\CategoriasController.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAwwEQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T03:05:58.856Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-29T03:14:50.296Z"
             }
           ]
         }

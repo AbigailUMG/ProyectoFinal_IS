@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alfredo Ajù\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\BackendApi.csproj": {}
+    "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\BackendApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alfredo Ajù\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\BackendApi.csproj": {
+    "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\BackendApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alfredo Ajù\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\BackendApi.csproj",
+        "projectUniqueName": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\BackendApi.csproj",
         "projectName": "BackendApi",
-        "projectPath": "C:\\Users\\Alfredo Ajù\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\BackendApi.csproj",
-        "packagesPath": "C:\\Users\\Alfredo Ajù\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alfredo Ajù\\OneDrive\\Escritorio\\CARPETA ABI\\SEMESTRE SIETE\\BASE DE DATOS 2\\BackendApi\\obj\\",
+        "projectPath": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\BackendApi.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Ingeniera de Software\\Prueba API\\Proyecto final IS\\ProyectoFinal_IS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Alfredo Ajù\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -79,6 +79,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.18, 7.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -87,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

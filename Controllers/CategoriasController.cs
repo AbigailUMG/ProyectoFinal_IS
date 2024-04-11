@@ -19,27 +19,7 @@ namespace BackendApi.Controllers
             _DBLaSurtidora = _laSurtidora;
         }
 
-        [HttpGet]
-        [Route("Lista")]
-       
-
-        public IActionResult ListaCategoria(){
-            List<Categoria> categorias = new List<Categoria>();
-
-            try
-            {
-                categorias = _DBLaSurtidora.Categorias.ToList();
-
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato correcto", response = categorias });
-
-            }
-
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = categorias });
-            }
-
-        }
+      
 
 
         [HttpGet]
