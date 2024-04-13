@@ -160,7 +160,45 @@ namespace BackendApi.Controllers
 
         }
 
+ [HttpPost]
+ [Route("Validar")]
+ public IActionResult Validar([FromBody] Credenciale validacion )
+ {
+    
+     Console.WriteLine(validacion.Username);
 
+     if (validacion.Username == null && validacion.Password == null)
+     {
+         return BadRequest("datos no encontrados");
+     }
+     try
+     {
+         var credenciales = this._DBLaSurtidora.Credenciales.FirstOrDefault(c => c.Username == validacion.Username);
+         var PassEntrada = Encriptacion.EncripContra(validacion.Password);
+
+         Console.WriteLine(PassEntrada);
+
+         Console.WriteLine( validacion.Password);
+
+         if (credenciales!= null && credenciales.Password == PassEntrada)
+         {
+             return StatusCode(StatusCodes.Status200OK, new { mensaje = "Inicio de Sesion Correcto" });
+         }
+         else
+         {
+             return StatusCode(StatusCodes.Status200OK, new { mensaje = "Credenciales no existentes " });
+         }
+      
+     }
+     catch (Exception ex)
+     {
+         //return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+         return StatusCode(StatusCodes.Status404NotFound, new { mensaje = "Error al guardar los datos", detalle = ex.InnerException.Message });
+     }
+
+
+
+ }
 
 
 
