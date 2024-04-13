@@ -5,8 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackendApi.Models;
 
+using Microsoft.AspNetCore.Cors;
+
 namespace BackendApi.Controllers
 {
+
+    [EnableCors("ReglasCors")]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class CompraController : ControllerBase

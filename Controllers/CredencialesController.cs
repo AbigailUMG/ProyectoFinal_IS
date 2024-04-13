@@ -4,10 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 
 using Microsoft.EntityFrameworkCore;
 using BackendApi.Models;
+using BackendApi.Services;
 
+using Microsoft.AspNetCore.Cors;
 
 namespace BackendApi.Controllers
 {
+    [EnableCors("ReglasCors")]
+
     [Route("api/[controller]")]
     [ApiController]
     public class CredencialesController : ControllerBase
@@ -76,6 +80,11 @@ namespace BackendApi.Controllers
 
             try
             {
+
+                string ContraEncrip = Encriptacion.EncripContra(credenciales.Password);
+                credenciales.Password = ContraEncrip;
+
+
                 _DBLaSurtidora.Credenciales.Add(credenciales);
                 _DBLaSurtidora.SaveChanges();
 
@@ -89,7 +98,8 @@ namespace BackendApi.Controllers
                 Console.WriteLine("Error al guardar credenciales: " + ex.ToString());
 
                 // Devolver un código de estado 500 para indicar un error interno del servidor
-                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error interno del servidor al guardar credenciales" });
+                //return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error interno del servidor al guardar credenciales" });
+                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = "Error al guardar los datos", detalle = ex.InnerException.Message });
             }
         }
 
@@ -121,6 +131,33 @@ namespace BackendApi.Controllers
             {
                 return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
             }
+        }
+
+        [HttpDelete]
+        [Route("Eliminar/{IdCredenciales:int}")]
+
+        public IActionResult Eliminar(int Idcredenciales)
+        {
+            Credenciale Ocredencial = _DBLaSurtidora.Credenciales.Find(Idcredenciales);
+
+            if (Ocredencial == null)
+            {
+                return BadRequest("Credencial no encontrado");
+            }
+
+            try
+            {
+                _DBLaSurtidora.Credenciales.Remove(Ocredencial);
+                _DBLaSurtidora.SaveChanges();
+
+
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Credencial eliminado exitosamente" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+            }
+
         }
 
 

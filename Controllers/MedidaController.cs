@@ -5,9 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackendApi.Models;
 
+using Microsoft.AspNetCore.Cors;
 
 namespace BackendApi.Controllers
 {
+    [EnableCors("ReglasCors")]
+
     [Route("api/[controller]")]
     [ApiController]
     public class MedidaController : ControllerBase
@@ -17,7 +20,6 @@ namespace BackendApi.Controllers
         public MedidaController(LaSurtidoraBuenPrecioIsContext _LaSurtidora)
         {
             _DBLaSurtidora = _LaSurtidora;
-
         }
 
         [HttpGet]
