@@ -103,8 +103,8 @@ namespace BackendApi.Controllers
             try
             {
 
-                Omarca.NombreMarca = marca.NombreMarca is null ? Omarca.NombreMarca : marca.NombreMarca;
-                Omarca.Estado = marca.Estado is true or false ? Omarca.Estado : marca.Estado;
+                Omarca.NombreMarca = marca.NombreMarca;
+                Omarca.Estado = marca.Estado;
                 Omarca.Descripcion = marca.Descripcion is null ? Omarca.Descripcion : marca.Descripcion;
 
                 _DBLaSurtidora.Marcas.Update(Omarca);

@@ -35,6 +35,5 @@ public partial class Caja
     /// Total de la caja.
     /// </summary>
 
-    [JsonIgnore]
     public decimal TotalCaja { get; set; }
 }

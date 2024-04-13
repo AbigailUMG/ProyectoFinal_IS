@@ -100,7 +100,7 @@ namespace BackendApi.Controllers
             try
             {
                 OUsuario.Email = usuario.Email is null ? OUsuario.Email: usuario.Email;
-                OUsuario.PrimerNombre = usuario.PrimerNombre is null ? OUsuario.PrimerNombre : usuario.PrimerNombre;
+                OUsuario.PrimerNombre = usuario.PrimerNombre;
                 OUsuario.SegundoNombre = usuario.SegundoNombre is null ? OUsuario.SegundoNombre : usuario.SegundoNombre;
                 OUsuario.OtrosNombres = usuario.OtrosNombres is null ? OUsuario.OtrosNombres : usuario.OtrosNombres;
                 OUsuario.PrimerApellido = usuario.PrimerApellido is null ? OUsuario.PrimerApellido : usuario.PrimerApellido;

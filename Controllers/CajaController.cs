@@ -101,11 +101,11 @@ namespace BackendApi.Controllers
             try
             {
 
-                OCaja.Anio = cajas.Anio is null ? OCaja.Anio : cajas.Anio;
-                OCaja.Mes = cajas.Mes is null ? OCaja.Mes : cajas.Mes;
-                OCaja.TotalGastos = cajas.TotalGastos is decimal ? OCaja.TotalGastos : cajas.TotalGastos;
-                OCaja.TotalIngresos = cajas.TotalIngresos is decimal ? OCaja.TotalIngresos : cajas.TotalIngresos;
-                OCaja.TotalCaja = cajas.TotalCaja is decimal ? OCaja.TotalCaja : cajas.TotalCaja;
+                OCaja.Anio = cajas.Anio;
+                OCaja.Mes = cajas.Mes;
+                OCaja.TotalGastos = cajas.TotalGastos;
+                OCaja.TotalIngresos = cajas.TotalIngresos;
+                OCaja.TotalCaja = cajas.TotalCaja;
 
 
 

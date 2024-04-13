@@ -99,9 +99,9 @@ namespace BackendApi.Controllers
             }
             try
             {
-                
+                OCategoria.NombreCategoria = categoria.NombreCategoria;
                 OCategoria.Descripcion = categoria.Descripcion is null ? OCategoria.Descripcion: categoria.Descripcion;
-                OCategoria.NombreCategoria = categoria.NombreCategoria is null ? OCategoria.NombreCategoria : categoria.NombreCategoria;
+                OCategoria.Estado = categoria.Estado;
 
                 _DBLaSurtidora.Categorias.Update(OCategoria);
                 _DBLaSurtidora.SaveChanges();

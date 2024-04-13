@@ -101,8 +101,8 @@ namespace BackendApi.Controllers
             try
             {
 
-                OMedida.Descripcion = medida.Descripcion is null ? OMedida.Descripcion : medida.Descripcion;
-                OMedida.Prefijo = medida.Prefijo is null ? OMedida.Prefijo : medida.Prefijo;
+                OMedida.Descripcion = medida.Descripcion;
+                OMedida.Prefijo = medida.Prefijo;
 
                 _DBLaSurtidora.UnidadesMedidas.Update(OMedida);
                 _DBLaSurtidora.SaveChanges();

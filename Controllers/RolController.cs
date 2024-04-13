@@ -99,7 +99,7 @@ namespace BackendApi.Controllers
                 // Nombre_puesto Detalles
             {
 
-                ORol.NombrePuesto = rol.NombrePuesto is null ? ORol.NombrePuesto : rol.NombrePuesto;
+                ORol.NombrePuesto = rol.NombrePuesto;
                 ORol.Detalles = rol.Detalles is null ? ORol.Detalles : rol.Detalles;
 
                
