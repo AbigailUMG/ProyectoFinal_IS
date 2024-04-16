@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -28,5 +29,6 @@ public partial class DetalleVenta
 
     public virtual Producto? FkIdProducto1Navigation { get; set; }
 
+    [JsonIgnore]
     public virtual Venta? FkVentaNavigation { get; set; }
 }

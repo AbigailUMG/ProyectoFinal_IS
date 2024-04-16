@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -60,17 +61,24 @@ public partial class Producto
     /// </summary>
     public int FkMarca { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<DetalleCompra> DetalleCompras { get; set; } = new List<DetalleCompra>();
 
+    [JsonIgnore]
     public virtual ICollection<DetalleVenta> DetalleVenta { get; set; } = new List<DetalleVenta>();
 
+    [JsonIgnore]
     public virtual Categoria FkCategoriaNavigation { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual Marca FkMarcaNavigation { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual Presentacion FkPresentacionNavigation { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual UnidadesMedida FkUnidadMedidaNavigation { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual ICollection<Inventario> Inventarios { get; set; } = new List<Inventario>();
 }
