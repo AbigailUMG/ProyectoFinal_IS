@@ -35,13 +35,13 @@ namespace BackendApi.Controllers
             {
                 Ocompras = _DBLaSurtidora.Compras.ToList();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato correcto", response = Ocompras });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = Ocompras });
 
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = Ocompras });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = Ocompras });
             }
 
         }
@@ -62,12 +62,12 @@ namespace BackendApi.Controllers
             {
                 Ocompras = _DBLaSurtidora.Compras.Where(p => p.IdCompra == IdCompras).FirstOrDefault();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "ok", response = Ocompras });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = Ocompras });
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = Ocompras });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok= false, mensaje = ex.Message, response = Ocompras });
             }
         }
 
@@ -82,11 +82,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.Compras.Add(compra);
                 _DBLaSurtidora.SaveChanges();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Compra Guardado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Compra Guardado Exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
 
         }
@@ -113,11 +113,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Compra Editado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true,  mensaje = "Compra Editado Exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
         }
 
@@ -140,11 +140,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Compra eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Compra eliminado exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
 
         }

@@ -34,13 +34,13 @@ namespace BackendApi.Controllers
             {
                 productos = _DBLaSurtidora.Productos.ToList();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato correcto", response = productos });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = productos });
 
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = productos });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = productos });
             }
 
         }
@@ -61,12 +61,12 @@ namespace BackendApi.Controllers
             {
                 Oproducto = _DBLaSurtidora.Productos.Where(p => p.IdProductos == IdProducto).FirstOrDefault();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "ok", response = Oproducto });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = Oproducto });
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = Oproducto });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = Oproducto });
             }
         }
 
@@ -81,11 +81,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.Productos.Add(producto);
                 _DBLaSurtidora.SaveChanges();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato Guardado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Dato Guardado Exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
 
         }
@@ -108,7 +108,6 @@ namespace BackendApi.Controllers
                 Oproducto.Descripcion = producto.Descripcion is null ? Oproducto.Descripcion : producto.Descripcion;
                 Oproducto.CodigoBarras = producto.CodigoBarras is null ? Oproducto.CodigoBarras : producto.CodigoBarras;
                 Oproducto.Tamanio = producto.Tamanio;
-                Oproducto.Imagen = producto.Imagen;
                 Oproducto.Estado = producto.Estado;
 
 
@@ -116,11 +115,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Producto Editado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Producto Editado Exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
         }
 
@@ -143,11 +142,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Producto eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Producto eliminado exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
 
         }

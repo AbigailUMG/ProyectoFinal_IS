@@ -34,13 +34,13 @@ namespace BackendApi.Controllers
             {
                 cajas = _DBLaSurtidora.Cajas.ToList();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato correcto", response = cajas });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = cajas });
 
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = cajas });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = cajas });
             }
 
         }
@@ -61,12 +61,12 @@ namespace BackendApi.Controllers
             {
                 Ocaja = _DBLaSurtidora.Cajas.Where(p => p.IdCaja == IdCaja).FirstOrDefault();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "ok", response = Ocaja });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = Ocaja });
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = Ocaja });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = Ocaja });
             }
         }
 
@@ -81,11 +81,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.Cajas.Add(cajas);
                 _DBLaSurtidora.SaveChanges();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato Guardado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Dato Guardado Exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok= false, mensaje = ex.Message });
             }
 
         }
@@ -116,11 +116,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Categoria Editado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Categoria Editado Exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
         }
 
@@ -143,11 +143,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Categoria eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Categoria eliminado exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
 
         }

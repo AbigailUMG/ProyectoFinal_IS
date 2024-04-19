@@ -35,13 +35,13 @@ namespace BackendApi.Controllers
             {
                 proveedores = _DBLaSurtidora.Proveedores.ToList();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato correcto", response = proveedores });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = proveedores });
 
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = proveedores });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = proveedores });
             }
 
         }
@@ -62,12 +62,12 @@ namespace BackendApi.Controllers
             {
                 proveedore = _DBLaSurtidora.Proveedores.Where(p => p.IdProveedor == IdProveedor).FirstOrDefault();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "ok", response = proveedore });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = proveedore });
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = proveedore });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = proveedore });
             }
         }
 
@@ -85,11 +85,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.Proveedores.Add(proveedor);
                 _DBLaSurtidora.SaveChanges();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato Guardado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Dato Guardado Exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
 
         }
@@ -119,11 +119,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Proveedor Editado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Proveedor Editado Exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
         }
 
@@ -146,11 +146,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Proveedor eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Proveedor eliminado exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
 
         }

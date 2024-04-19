@@ -36,13 +36,13 @@ namespace BackendApi.Controllers
             {
                 credenciales = _DBLaSurtidora.Credenciales.ToList();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato correcto", response = credenciales });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = credenciales });
 
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = credenciales });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = credenciales });
             }
 
         }
@@ -63,12 +63,12 @@ namespace BackendApi.Controllers
             {
                 Ocredencial = _DBLaSurtidora.Credenciales.Where(p => p.IdCredenciales == IdCredencial).FirstOrDefault();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "ok", response = Ocredencial });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = Ocredencial });
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = Ocredencial });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = Ocredencial });
             }
         }
 
@@ -90,7 +90,7 @@ namespace BackendApi.Controllers
 
                 Console.WriteLine(credenciales);
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Credenciales Guardado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok= true, mensaje = "Credenciales Guardado Exitosamente" });
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace BackendApi.Controllers
 
                 // Devolver un código de estado 500 para indicar un error interno del servidor
                 //return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error interno del servidor al guardar credenciales" });
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = "Error al guardar los datos", detalle = ex.InnerException.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = "Error al guardar los datos", detalle = ex.InnerException.Message });
             }
         }
 
@@ -125,11 +125,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Credenciales Editado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok= true, mensaje = "Credenciales Editado Exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
         }
 
@@ -151,11 +151,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Credencial eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Credencial eliminado exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
 
         }

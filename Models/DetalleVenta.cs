@@ -27,6 +27,7 @@ public partial class DetalleVenta
 
     public decimal? Descuento { get; set; }
 
+    [JsonIgnore]
     public virtual Producto? FkIdProducto1Navigation { get; set; }
 
     [JsonIgnore]

@@ -30,13 +30,13 @@ namespace BackendApi.Controllers
             {
                 detalleCompras = _DBLaSurtidora.DetalleCompras.ToList();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato correcto", response = detalleCompras });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = detalleCompras });
 
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = detalleCompras });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = detalleCompras });
             }
 
         }
@@ -44,7 +44,7 @@ namespace BackendApi.Controllers
 
         [HttpGet]
         [Route("Obtener/{IdDetalleCompra:int}")]
-        public IActionResult Obtener(long IdDetalleCompra)
+        public IActionResult Obtener(long IdDetalleCompra)              
         {
             DetalleCompra detalleCompra = _DBLaSurtidora.DetalleCompras.Find(IdDetalleCompra);
 
@@ -57,12 +57,12 @@ namespace BackendApi.Controllers
             {
                 detalleCompra = _DBLaSurtidora.DetalleCompras.Where(p => p.IdDetalleCompra == IdDetalleCompra).FirstOrDefault();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "ok", response = detalleCompra });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "ok", response = detalleCompra });
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = detalleCompra });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = detalleCompra });
             }
         }
 
@@ -77,11 +77,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.DetalleCompras.Add(detalleCompra);
                 _DBLaSurtidora.SaveChanges();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato Guardado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Dato Guardado Exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
 
         }
@@ -109,11 +109,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Detalle Compra Editado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Detalle Compra Editado Exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
         }
 
@@ -121,7 +121,7 @@ namespace BackendApi.Controllers
         [HttpDelete]
         [Route("Eliminar/{IdDetalleCompra:int}")]
 
-        public IActionResult Eliminar(int IdDetalleCompra)
+        public IActionResult Eliminar(long IdDetalleCompra)
         {
             DetalleCompra detalleCompra = _DBLaSurtidora.DetalleCompras.Find(IdDetalleCompra);
 
@@ -136,11 +136,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Detalle de Compra eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Detalle de Compra eliminado exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
 
         }

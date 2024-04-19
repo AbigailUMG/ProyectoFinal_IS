@@ -34,7 +34,7 @@ public partial class Producto
     /// <summary>
     /// Una imagen del producto (generalmente como una referencia).
     /// </summary>
-    public byte[] Imagen { get; set; } = null!;
+    public string Imagen { get; set; } = null!;
 
     /// <summary>
     /// El estado del producto (por ejemplo, disponible, agotado, etc.).

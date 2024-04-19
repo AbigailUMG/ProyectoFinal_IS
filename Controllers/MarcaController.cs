@@ -33,13 +33,13 @@ namespace BackendApi.Controllers
             {
                 marcas = _DBLaSurtidora.Marcas.ToList();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato correcto", response = marcas });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = marcas });
 
             }
 
             catch (Exception ex)
             { 
-                    return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = marcas });
+                    return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = marcas });
             }
         }
 
@@ -59,12 +59,12 @@ namespace BackendApi.Controllers
             {
                 marca = _DBLaSurtidora.Marcas.Where(p => p.IdMarcas == IdMarca).FirstOrDefault();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Dato correcto", response = marca });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = marca });
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = marca });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = marca });
 
 
             }
@@ -82,12 +82,12 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.Marcas.Add(marca);
                 _DBLaSurtidora.SaveChanges();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Datos Guardado Exitosamente "});
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos Guardado Exitosamente "});
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new {mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
         }
 
@@ -113,13 +113,13 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.Marcas.Update(Omarca);
                 _DBLaSurtidora.SaveChanges();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Marca Editado Exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Marca Editado Exitosamente" });
 
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
 
 
@@ -143,11 +143,11 @@ namespace BackendApi.Controllers
                 _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Marca eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Marca eliminado exitosamente" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
             }
 
         }
