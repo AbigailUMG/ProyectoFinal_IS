@@ -6,13 +6,16 @@ using Microsoft.EntityFrameworkCore;
 using BackendApi.Models;
 
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackendApi.Controllers
 {
     [EnableCors("ReglasCors")]
 
     [Route("api/[controller]")]
+    // [Authorize(Roles = "vendedor, administrador")]
     [ApiController]
+    
     public class MarcaController : ControllerBase
     {
         private readonly LaSurtidoraBuenPrecioIsContext _DBLaSurtidora;
@@ -31,7 +34,7 @@ namespace BackendApi.Controllers
 
             try
             {
-                marcas = _DBLaSurtidora.Marcas.ToList();
+                marcas = _DBLaSurtidora.Marcas.Where(m => m.Estado == true).ToList();
 
                 return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = marcas });
 
@@ -40,6 +43,24 @@ namespace BackendApi.Controllers
             catch (Exception ex)
             { 
                     return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = marcas });
+            }
+        }
+
+        [HttpGet]
+        [Route("Lista-desactivados")]
+        public IActionResult ListaMarcaNulos()
+        {
+            List<Marca> marcas = new List<Marca>();
+
+            try
+            {
+                marcas = _DBLaSurtidora.Marcas.Where(m => m.Estado == false).ToList();
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Dato correcto", response = marcas });
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = marcas });
             }
         }
 
@@ -79,6 +100,8 @@ namespace BackendApi.Controllers
 
             try
             {
+                marca.Estado = true;
+
                 _DBLaSurtidora.Marcas.Add(marca);
                 _DBLaSurtidora.SaveChanges();
 
@@ -125,32 +148,55 @@ namespace BackendApi.Controllers
 
         }
 
-        [HttpDelete]
-        [Route("Eliminar/{IdMarca:int}")]
-
-        public IActionResult Eliminar(int IdMarca)
+        [HttpPut]
+        [Route("Estado")]
+        public IActionResult Desactivar(Marca marca)
         {
-            Marca Omarca = _DBLaSurtidora.Marcas.Find(IdMarca);
-
+            Marca Omarca = _DBLaSurtidora.Marcas.Find(marca.IdMarcas);
             if (Omarca == null)
             {
                 return BadRequest("Marca no encontrado");
             }
-
             try
             {
-                _DBLaSurtidora.Marcas.Remove(Omarca);
+                Omarca.Estado = marca.Estado;
+                _DBLaSurtidora.Marcas.Update(Omarca);
                 _DBLaSurtidora.SaveChanges();
-
-
-                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Marca eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Marca cambio de estado Exitosamente" });
             }
+
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ex.Message });
             }
-
         }
+
+        //[HttpDelete]
+        //[Route("Eliminar/{IdMarca:int}")]
+
+        //public IActionResult Eliminar(int IdMarca)
+        //{
+        //    Marca Omarca = _DBLaSurtidora.Marcas.Find(IdMarca);
+
+        //    if (Omarca == null)
+        //    {
+        //        return BadRequest("Marca no encontrado");
+        //    }
+
+        //    try
+        //    {
+        //        _DBLaSurtidora.Marcas.Remove(Omarca);
+        //        _DBLaSurtidora.SaveChanges();
+
+
+        //        return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Marca eliminado exitosamente" });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+        //    }
+
+        //}
 
 
     }

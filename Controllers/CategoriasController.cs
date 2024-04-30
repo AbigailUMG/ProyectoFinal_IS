@@ -23,7 +23,7 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet]
-        [Route("Lista")]
+        [Route("Lista-Activados")]
        
 
         public IActionResult ListaCategoria(){
@@ -31,7 +31,28 @@ namespace BackendApi.Controllers
 
             try
             {
-                categorias = _DBLaSurtidora.Categorias.ToList();
+                categorias = _DBLaSurtidora.Categorias.Where(m => m.Estado == true).ToList();
+
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = categorias });
+
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = categorias });
+            }
+
+        }
+        [HttpGet]
+        [Route("Lista-Desactivados")]
+       
+
+        public IActionResult ListaCategoriaNulos(){
+            List<Categoria> categorias = new List<Categoria>();
+
+            try
+            {
+                categorias = _DBLaSurtidora.Categorias.Where(m => m.Estado == false).ToList();
 
                 return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = categorias });
 
@@ -119,32 +140,58 @@ namespace BackendApi.Controllers
         }
 
 
-        [HttpDelete]
-        [Route("Eliminar/{IdCategoria:int}")]
-
-        public IActionResult Eliminar(int IdCategoria)
+        [HttpPut]
+        [Route("Estado")]
+        public IActionResult Desactivar(Categoria categoria)
         {
-            Categoria Ocategoria = _DBLaSurtidora.Categorias.Find(IdCategoria);
-
+            Categoria Ocategoria = _DBLaSurtidora.Categorias.Find(categoria.IdCategoria);
             if (Ocategoria == null)
             {
                 return BadRequest("Categoria no encontrado");
             }
-
             try
             {
-                _DBLaSurtidora.Categorias.Remove(Ocategoria);
+                Ocategoria.Estado = categoria.Estado;
+                _DBLaSurtidora.Categorias.Update(Ocategoria);
                 _DBLaSurtidora.SaveChanges();
-
-
-                return StatusCode(StatusCodes.Status200OK, new { ok= true, mensaje = "Categoria eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Categoria cambio de estado Exitosamente" });
             }
+
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { ok= false, mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ex.Message });
             }
-
         }
+
+
+        //[HttpDelete]
+        //[Route("Eliminar/{IdCategoria:int}")]
+
+        //public IActionResult Eliminar(int IdCategoria)
+        //{
+        //    Categoria Ocategoria = _DBLaSurtidora.Categorias.Find(IdCategoria);
+
+        //    if (Ocategoria == null)
+        //    {
+        //        return BadRequest("Categoria no encontrado");
+        //    }
+
+        //    try
+        //    {
+        //        _DBLaSurtidora.Categorias.Remove(Ocategoria);
+        //        _DBLaSurtidora.SaveChanges();
+
+
+        //        return StatusCode(StatusCodes.Status200OK, new { ok= true, mensaje = "Categoria eliminado exitosamente" });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(StatusCodes.Status404NotFound, new { ok= false, mensaje = ex.Message });
+        //    }
+
+        //}
+
+
 
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -34,6 +33,5 @@ public partial class Caja
     /// <summary>
     /// Total de la caja.
     /// </summary>
-
     public decimal TotalCaja { get; set; }
 }

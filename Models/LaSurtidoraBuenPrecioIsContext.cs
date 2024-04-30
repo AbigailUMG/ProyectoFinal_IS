@@ -52,6 +52,7 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
     public virtual DbSet<Venta> Ventas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Caja>(entity =>
@@ -107,6 +108,9 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.Property(e => e.IdCompra)
                 .HasComment("Identificador único de la compra.")
                 .HasColumnName("ID_compra");
+            entity.Property(e => e.Estado)
+                .IsRequired()
+                .HasDefaultValueSql("((1))");
             entity.Property(e => e.FechaCompra)
                 .HasComment("Fecha de la compra.")
                 .HasColumnType("date")
@@ -149,7 +153,7 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.Property(e => e.FkRol).HasColumnName("fk_rol");
             entity.Property(e => e.FkUsuario).HasColumnName("fk_usuario");
             entity.Property(e => e.Password)
-                .HasMaxLength(25)
+                .HasMaxLength(64)
                 .HasColumnName("password");
             entity.Property(e => e.Username)
                 .HasMaxLength(50)
@@ -298,6 +302,9 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.Property(e => e.Descripcion)
                 .HasMaxLength(100)
                 .HasComment("Descripción del método de pago.");
+            entity.Property(e => e.Estado)
+                .IsRequired()
+                .HasDefaultValueSql("((1))");
             entity.Property(e => e.Nombre)
                 .HasMaxLength(50)
                 .HasComment("Nombre del método de pago.");
@@ -356,6 +363,9 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.Property(e => e.IdPresentacion)
                 .HasComment("Identificador único para cada tipo de presentación.")
                 .HasColumnName("ID_presentacion");
+            entity.Property(e => e.Estado)
+                .IsRequired()
+                .HasDefaultValueSql("((1))");
             entity.Property(e => e.NombrePresentacion)
                 .HasMaxLength(50)
                 .HasComment("El nombre o tipo de presentación del producto.")
@@ -376,7 +386,9 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.Property(e => e.Descripcion)
                 .HasMaxLength(100)
                 .HasComment("Una descripción del producto.");
-            entity.Property(e => e.Estado).HasComment("El estado del producto (por ejemplo, disponible, agotado, etc.).");
+            entity.Property(e => e.Estado)
+                .IsRequired()
+                .HasDefaultValueSql("((1))");
             entity.Property(e => e.FkCategoria)
                 .HasComment("Llave foránea que se relaciona con la categoría del producto.")
                 .HasColumnName("fk_categoria");
@@ -389,7 +401,6 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.Property(e => e.FkUnidadMedida)
                 .HasComment("Llave foránea que se relaciona con la unidad de medida del producto.")
                 .HasColumnName("fk_unidad_medida");
-            entity.Property(e => e.Imagen).HasComment("Una imagen del producto (generalmente como una referencia).");
             entity.Property(e => e.NombreProducto)
                 .HasMaxLength(50)
                 .HasComment("El nombre del producto.")
@@ -459,6 +470,9 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.Property(e => e.Detalles)
                 .HasMaxLength(50)
                 .HasComment("Cualquier información adicional sobre el puesto.");
+            entity.Property(e => e.Estado)
+                .IsRequired()
+                .HasDefaultValueSql("((1))");
             entity.Property(e => e.NombrePuesto)
                 .HasMaxLength(25)
                 .HasComment("El nombre del puesto.")
@@ -477,6 +491,9 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.Property(e => e.Descripcion)
                 .HasMaxLength(20)
                 .HasComment("Descripción de la unidad de medida.");
+            entity.Property(e => e.Estado)
+                .IsRequired()
+                .HasDefaultValueSql("((1))");
             entity.Property(e => e.Prefijo)
                 .HasMaxLength(6)
                 .HasComment("Prefijo asociado a la unidad de medida.")
@@ -495,6 +512,9 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.Property(e => e.Email)
                 .HasComment("Cualquier otro nombre del empleado.")
                 .HasColumnName("email");
+            entity.Property(e => e.Estado)
+                .IsRequired()
+                .HasDefaultValueSql("((1))");
             entity.Property(e => e.FechaRegistro)
                 .HasColumnType("datetime")
                 .HasColumnName("fecha_registro");
@@ -527,6 +547,9 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
             entity.Property(e => e.IdVenta)
                 .HasComment("Identificador único para cada venta.")
                 .HasColumnName("ID_venta");
+            entity.Property(e => e.Estado)
+                .IsRequired()
+                .HasDefaultValueSql("((1))");
             entity.Property(e => e.FechaVenta)
                 .HasDefaultValueSql("(getdate())")
                 .HasComment("La fecha en que se realizó la venta.\r\n")

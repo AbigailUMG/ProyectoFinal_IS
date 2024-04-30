@@ -32,7 +32,7 @@ namespace BackendApi.Controllers
 
             try
             {
-                medidas = _DBLaSurtidora.UnidadesMedidas.ToList();
+                medidas = _DBLaSurtidora.UnidadesMedidas.Where(m => m.Estado == true).ToList();
 
                 return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = medidas });
 
@@ -76,6 +76,7 @@ namespace BackendApi.Controllers
 
             try
             {
+                medida.Estado = true;
                 _DBLaSurtidora.UnidadesMedidas.Add(medida);
                 _DBLaSurtidora.SaveChanges();
 
@@ -119,32 +120,37 @@ namespace BackendApi.Controllers
         }
 
 
-        [HttpDelete]
-        [Route("Eliminar/{IdMedida:int}")]
-
-        public IActionResult Eliminar(int IdMedida)
-        {
-            UnidadesMedida OMedida = _DBLaSurtidora.UnidadesMedidas.Find(IdMedida);
-
-            if (OMedida == null)
-            {
-                return BadRequest("Unidad de Medida no encontrado");
-            }
-
-            try
-            {
-                _DBLaSurtidora.UnidadesMedidas.Remove(OMedida);
-                _DBLaSurtidora.SaveChanges();
 
 
-                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Unidad Medida eliminado exitosamente" });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
-            }
 
-        }
+    
+
+        //[HttpDelete]
+        //[Route("Eliminar/{IdMedida:int}")]
+
+        //public IActionResult Eliminar(int IdMedida)
+        //{
+        //    UnidadesMedida OMedida = _DBLaSurtidora.UnidadesMedidas.Find(IdMedida);
+
+        //    if (OMedida == null)
+        //    {
+        //        return BadRequest("Unidad de Medida no encontrado");
+        //    }
+
+        //    try
+        //    {
+        //        _DBLaSurtidora.UnidadesMedidas.Remove(OMedida);
+        //        _DBLaSurtidora.SaveChanges();
+
+
+        //        return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Unidad Medida eliminado exitosamente" });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+        //    }
+
+        //}
 
 
 

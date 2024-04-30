@@ -21,6 +21,8 @@ public partial class Rol
     /// </summary>
     public string? Detalles { get; set; }
 
+    public bool? Estado { get; set; }
+
     [JsonIgnore]
     public virtual ICollection<Credenciale> Credenciales { get; set; } = new List<Credenciale>();
 }

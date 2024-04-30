@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -15,5 +16,6 @@ public partial class Movimiento
     /// </summary>
     public string Nombre { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual ICollection<MovimientoCaja> MovimientoCajas { get; set; } = new List<MovimientoCaja>();
 }

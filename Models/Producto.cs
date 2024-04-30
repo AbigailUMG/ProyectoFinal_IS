@@ -32,16 +32,6 @@ public partial class Producto
     public decimal Tamanio { get; set; }
 
     /// <summary>
-    /// Una imagen del producto (generalmente como una referencia).
-    /// </summary>
-    public string Imagen { get; set; } = null!;
-
-    /// <summary>
-    /// El estado del producto (por ejemplo, disponible, agotado, etc.).
-    /// </summary>
-    public bool Estado { get; set; }
-
-    /// <summary>
     ///  Llave foránea que se relaciona con la presentación del producto.
     /// </summary>
     public int FkPresentacion { get; set; }
@@ -60,6 +50,8 @@ public partial class Producto
     /// Llave foránea que se relaciona con la marca del producto.
     /// </summary>
     public int FkMarca { get; set; }
+
+    public bool? Estado { get; set; }
 
     [JsonIgnore]
     public virtual ICollection<DetalleCompra> DetalleCompras { get; set; } = new List<DetalleCompra>();

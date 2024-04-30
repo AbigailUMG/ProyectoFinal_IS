@@ -21,6 +21,8 @@ public partial class MetodosPago
     /// </summary>
     public string? Descripcion { get; set; }
 
+    public bool? Estado { get; set; }
+
     [JsonIgnore]
     public virtual ICollection<Compra> Compras { get; set; } = new List<Compra>();
 }

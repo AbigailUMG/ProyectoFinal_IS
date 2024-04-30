@@ -75,3 +75,4 @@ C:\Users\Alfredo Ajù\OneDrive\Escritorio\CARPETA ABI\SEMESTRE SIETE\BASE DE DAT
 C:\Users\Alfredo Ajù\OneDrive\Escritorio\CARPETA ABI\SEMESTRE SIETE\BASE DE DATOS 2\BackendApi\obj\Debug\net7.0\BackendApi.genruntimeconfig.cache
 C:\Users\Alfredo Ajù\OneDrive\Escritorio\CARPETA ABI\SEMESTRE SIETE\BASE DE DATOS 2\BackendApi\obj\Debug\net7.0\ref\BackendApi.dll
 C:\Users\Alfredo Ajù\OneDrive\Escritorio\CARPETA ABI\SEMESTRE SIETE\BASE DE DATOS 2\BackendApi\obj\Debug\net7.0\BackendApi.sourcelink.json
+C:\Users\Alfredo Ajù\OneDrive\Escritorio\CARPETA ABI\SEMESTRE SIETE\BASE DE DATOS 2\BackendApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

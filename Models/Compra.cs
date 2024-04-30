@@ -38,6 +38,8 @@ public partial class Compra
 
     public decimal? Total { get; set; }
 
+    public bool? Estado { get; set; }
+
     [JsonIgnore]
     public virtual ICollection<DetalleCompra> DetalleCompras { get; set; } = new List<DetalleCompra>();
 

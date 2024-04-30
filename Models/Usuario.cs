@@ -43,6 +43,8 @@ public partial class Usuario
 
     public DateTime? FechaRegistro { get; set; }
 
+    public bool? Estado { get; set; }
+
     [JsonIgnore]
     public virtual ICollection<Compra> Compras { get; set; } = new List<Compra>();
 
