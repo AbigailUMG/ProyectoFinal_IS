@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using BackendApi.Models;
 
 using Microsoft.AspNetCore.Cors;
+using System.Text.RegularExpressions;
 
 namespace BackendApi.Controllers
 {
@@ -24,7 +25,7 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet]
-        [Route("Lista")]
+        [Route("Lista-Activados")]
 
 
         public IActionResult ListaProveedor()
@@ -33,7 +34,30 @@ namespace BackendApi.Controllers
 
             try
             {
-                proveedores = _DBLaSurtidora.Proveedores.ToList();
+                proveedores = _DBLaSurtidora.Proveedores.Where(m => m.Estado == true).ToList();
+
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = proveedores });
+
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = proveedores });
+            }
+
+        }
+
+        [HttpGet]
+        [Route("Lista-Desactivados")]
+
+
+        public IActionResult ListaProveedorNulos()
+        {
+            List<Proveedore> proveedores = new List<Proveedore>();
+
+            try
+            {
+                proveedores = _DBLaSurtidora.Proveedores.Where(m => m.Estado == false).ToList();
 
                 return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = proveedores });
 
@@ -79,9 +103,10 @@ namespace BackendApi.Controllers
         [Route("Guardar")]
         public IActionResult Guardar([FromBody] Proveedore proveedor)
         {
-
             try
             {
+
+                proveedor.Estado = true;
                 _DBLaSurtidora.Proveedores.Add(proveedor);
                 _DBLaSurtidora.SaveChanges();
 
@@ -127,32 +152,57 @@ namespace BackendApi.Controllers
             }
         }
 
-
-        [HttpDelete]
-        [Route("Eliminar/{IdProveedor:int}")]
-
-        public IActionResult Eliminar(int IdProveedor)
+        [HttpPut]
+        [Route("Estado")]
+        public IActionResult Desactivar(Proveedore proveedor)
         {
-            Proveedore Oproveedor = _DBLaSurtidora.Proveedores.Find(IdProveedor);
-
+            Proveedore Oproveedor = _DBLaSurtidora.Proveedores.Find(proveedor.IdProveedor);
             if (Oproveedor == null)
             {
                 return BadRequest("Proveedor no encontrado");
             }
-
             try
             {
-                _DBLaSurtidora.Proveedores.Remove(Oproveedor);
+                Oproveedor.Estado = proveedor.Estado;
+                _DBLaSurtidora.Proveedores.Update(Oproveedor);
                 _DBLaSurtidora.SaveChanges();
-
-
-                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Proveedor eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Proveedor cambio de estado Exitosamente" });
             }
+
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ex.Message });
             }
-
         }
+
+
+
+
+        //[HttpDelete]
+        //[Route("Eliminar/{IdProveedor:int}")]
+
+        //public IActionResult Eliminar(int IdProveedor)
+        //{
+        //    Proveedore Oproveedor = _DBLaSurtidora.Proveedores.Find(IdProveedor);
+
+        //    if (Oproveedor == null)
+        //    {
+        //        return BadRequest("Proveedor no encontrado");
+        //    }
+
+        //    try
+        //    {
+        //        _DBLaSurtidora.Proveedores.Remove(Oproveedor);
+        //        _DBLaSurtidora.SaveChanges();
+
+
+        //        return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Proveedor eliminado exitosamente" });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+        //    }
+
+        //}
     }
 }

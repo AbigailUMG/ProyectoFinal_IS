@@ -23,16 +23,35 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet]
-        [Route("Lista")]
-
-
+        [Route("Lista-Activados")]
         public IActionResult ListaMetodoPago()
         {
             List<MetodosPago> metodopago = new List<MetodosPago>();
 
             try
             {
-                metodopago = _DBLaSurtidora.MetodosPagos.ToList();
+                metodopago = _DBLaSurtidora.MetodosPagos.Where(m => m.Estado == true).ToList();
+
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = metodopago });
+
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = metodopago });
+            }
+
+        }
+        
+        [HttpGet]
+        [Route("Lista-desactivados")]
+        public IActionResult ListaMetodoPagoNulos()
+        {
+            List<MetodosPago> metodopago = new List<MetodosPago>();
+
+            try
+            {
+                metodopago = _DBLaSurtidora.MetodosPagos.Where(m => m.Estado == false).ToList();
 
                 return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = metodopago });
 
@@ -80,6 +99,7 @@ namespace BackendApi.Controllers
 
             try
             {
+                 metodopago.Estado = true;
                 _DBLaSurtidora.MetodosPagos.Add(metodopago);
                 _DBLaSurtidora.SaveChanges();
 
@@ -122,33 +142,55 @@ namespace BackendApi.Controllers
             }
         }
 
-
-        [HttpDelete]
-        [Route("Eliminar/{IdMetodoPago:int}")]
-
-        public IActionResult Eliminar(int IdMetodoPago)
+        [HttpPut]
+        [Route("Estado")]
+        public IActionResult Desactivar(MetodosPago metodopago)
         {
-            MetodosPago Ometodopago = _DBLaSurtidora.MetodosPagos.Find(IdMetodoPago);
-
+            MetodosPago Ometodopago = _DBLaSurtidora.MetodosPagos.Find(metodopago.IdMetodoPago);
             if (Ometodopago == null)
             {
                 return BadRequest("Metodo de pago no encontrado");
             }
-
             try
             {
-                _DBLaSurtidora.MetodosPagos.Remove(Ometodopago);
+                Ometodopago.Estado = metodopago.Estado;
+                _DBLaSurtidora.MetodosPagos.Update(Ometodopago);
                 _DBLaSurtidora.SaveChanges();
-
-
-                return StatusCode(StatusCodes.Status200OK, new { ok= true, mensaje = "Metodo de pago eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Metodo de pago cambio de estado Exitosamente" });
             }
+
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ex.Message });
             }
-
         }
+
+        // [HttpDelete]
+        // [Route("Eliminar/{IdMetodoPago:int}")]
+
+        // public IActionResult Eliminar(int IdMetodoPago)
+        // {
+        //     MetodosPago Ometodopago = _DBLaSurtidora.MetodosPagos.Find(IdMetodoPago);
+
+        //     if (Ometodopago == null)
+        //     {
+        //         return BadRequest("Metodo de pago no encontrado");
+        //     }
+
+        //     try
+        //     {
+        //         _DBLaSurtidora.MetodosPagos.Remove(Ometodopago);
+        //         _DBLaSurtidora.SaveChanges();
+
+
+        //         return StatusCode(StatusCodes.Status200OK, new { ok= true, mensaje = "Metodo de pago eliminado exitosamente" });
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+        //     }
+
+        // }
 
 
 

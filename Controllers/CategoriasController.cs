@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using BackendApi.Models;
 
 using Microsoft.AspNetCore.Cors;
+using System.Text.RegularExpressions;
 
 namespace BackendApi.Controllers
 {
@@ -98,6 +99,7 @@ namespace BackendApi.Controllers
 
             try
             {
+                categoria.Estado = true;
                 _DBLaSurtidora.Categorias.Add(categoria);
                 _DBLaSurtidora.SaveChanges();
 

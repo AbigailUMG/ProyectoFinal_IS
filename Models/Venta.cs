@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -25,7 +26,9 @@ public partial class Venta
 
     public bool? Estado { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<DetalleVenta> DetalleVenta { get; set; } = new List<DetalleVenta>();
 
+    [JsonIgnore]
     public virtual Usuario? FkUsuario1Navigation { get; set; }
 }

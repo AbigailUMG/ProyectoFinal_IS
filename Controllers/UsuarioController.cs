@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using BackendApi.Models;
 
 using Microsoft.AspNetCore.Cors;
+using System.Text.RegularExpressions;
 
 namespace BackendApi.Controllers
 {
@@ -23,16 +24,34 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet]
-        [Route("Lista")]
-
-
+        [Route("Lista-Activado")]
         public IActionResult ListaUsuario()
         {
             List<Usuario> usuarios = new List<Usuario>();
 
             try
             {
-                usuarios = _DBLaSurtidora.Usuarios.ToList();
+                usuarios = _DBLaSurtidora.Usuarios.Where(m => m.Estado == true).ToList();
+
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = usuarios });
+
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = usuarios });
+            }
+
+        }
+        [HttpGet]
+        [Route("Lista-Desactivados")]
+        public IActionResult ListaUsuarioNulos()
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+
+            try
+            {
+                usuarios = _DBLaSurtidora.Usuarios.Where(m => m.Estado == false).ToList();
 
                 return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = usuarios });
 
@@ -76,6 +95,7 @@ namespace BackendApi.Controllers
 
             try
             {
+                usuario.Estado = true;
                 _DBLaSurtidora.Usuarios.Add(usuario);
                 _DBLaSurtidora.SaveChanges();
 
@@ -102,7 +122,7 @@ namespace BackendApi.Controllers
             }
             try
             {
-                OUsuario.Email = usuario.Email is null ? OUsuario.Email: usuario.Email;
+                OUsuario.Email = usuario.Email is null ? OUsuario.Email : usuario.Email;
                 OUsuario.PrimerNombre = usuario.PrimerNombre;
                 OUsuario.SegundoNombre = usuario.SegundoNombre is null ? OUsuario.SegundoNombre : usuario.SegundoNombre;
                 OUsuario.OtrosNombres = usuario.OtrosNombres is null ? OUsuario.OtrosNombres : usuario.OtrosNombres;
@@ -123,34 +143,55 @@ namespace BackendApi.Controllers
         }
 
 
-        [HttpDelete]
-        [Route("Eliminar/{IdUsuario:int}")]
-
-        public IActionResult Eliminar(int IdUsuario)
+        [HttpPut]
+        [Route("Estado")]
+        public IActionResult Desactivar(Usuario usuario)
         {
-            Usuario Ousuario = _DBLaSurtidora.Usuarios.Find(IdUsuario);
-
+            Usuario Ousuario = _DBLaSurtidora.Usuarios.Find(usuario.IdUsuario);
             if (Ousuario == null)
             {
                 return BadRequest("Usuario no encontrado");
             }
-
             try
             {
-                _DBLaSurtidora.Usuarios.Remove(Ousuario);
+                Ousuario.Estado = usuario.Estado;
+                _DBLaSurtidora.Usuarios.Update(Ousuario);
                 _DBLaSurtidora.SaveChanges();
-
-
-                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Usuario eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Usuario cambio de estado Exitosamente" });
             }
+
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ex.Message });
             }
 
         }
 
+        //[HttpDelete]
+        //[Route("Eliminar/{IdUsuario:int}")]
+
+        //public IActionResult Eliminar(int IdUsuario)
+        //{
+        //    Usuario Ousuario = _DBLaSurtidora.Usuarios.Find(IdUsuario);
+
+        //    if (Ousuario == null)
+        //    {
+        //        return BadRequest("Usuario no encontrado");
+        //    }
+
+        //    try
+        //    {
+        //        _DBLaSurtidora.Usuarios.Remove(Ousuario);
+        //        _DBLaSurtidora.SaveChanges();
 
 
+        //        return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Usuario eliminado exitosamente" });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+        //    }
+
+        //}
     }
 }

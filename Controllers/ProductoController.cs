@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using BackendApi.Models;
 
 using Microsoft.AspNetCore.Cors;
+using System.Text.RegularExpressions;
 
 namespace BackendApi.Controllers
 {
@@ -23,7 +24,7 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet]
-        [Route("Lista")]
+        [Route("Lista-Activados")]
 
 
         public IActionResult ListaProducto()
@@ -32,7 +33,30 @@ namespace BackendApi.Controllers
 
             try
             {
-                productos = _DBLaSurtidora.Productos.ToList();
+                productos = _DBLaSurtidora.Productos.Where(m => m.Estado == true).ToList();
+
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = productos });
+
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = productos });
+            }
+
+        }
+
+        [HttpGet]
+        [Route("Lista-Desactivados")]
+
+
+        public IActionResult ListaProductoNulos()
+        {
+            List<Producto> productos = new List<Producto>();
+
+            try
+            {
+                productos = _DBLaSurtidora.Productos.Where(m => m.Estado == false).ToList();
 
                 return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = productos });
 
@@ -78,6 +102,7 @@ namespace BackendApi.Controllers
 
             try
             {
+                producto.Estado = true;
                 _DBLaSurtidora.Productos.Add(producto);
                 _DBLaSurtidora.SaveChanges();
 
@@ -123,32 +148,57 @@ namespace BackendApi.Controllers
             }
         }
 
-
-        [HttpDelete]
-        [Route("Eliminar/{IdProducto:int}")]
-
-        public IActionResult Eliminar(int IdProducto)
+        [HttpPut]
+        [Route("Estado")]
+        public IActionResult Desactivar(Producto producto)
         {
-            Producto Oproducto = _DBLaSurtidora.Productos.Find(IdProducto);
-
+            Producto Oproducto = _DBLaSurtidora.Productos.Find(producto.IdProductos);
             if (Oproducto == null)
             {
                 return BadRequest("Producto no encontrado");
             }
-
             try
             {
-                _DBLaSurtidora.Productos.Remove(Oproducto);
+                Oproducto.Estado = producto.Estado;
+                _DBLaSurtidora.Productos.Update(Oproducto);
                 _DBLaSurtidora.SaveChanges();
-
-
-                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Producto eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Producto cambio de estado Exitosamente" });
             }
+
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ex.Message });
             }
-
         }
+
+
+
+
+        //[HttpDelete]
+        //[Route("Eliminar/{IdProducto:int}")]
+
+        //public IActionResult Eliminar(int IdProducto)
+        //{
+        //    Producto Oproducto = _DBLaSurtidora.Productos.Find(IdProducto);
+
+        //    if (Oproducto == null)
+        //    {
+        //        return BadRequest("Producto no encontrado");
+        //    }
+
+        //    try
+        //    {
+        //        _DBLaSurtidora.Productos.Remove(Oproducto);
+        //        _DBLaSurtidora.SaveChanges();
+
+
+        //        return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Producto eliminado exitosamente" });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+        //    }
+
+        //}
     }
 }

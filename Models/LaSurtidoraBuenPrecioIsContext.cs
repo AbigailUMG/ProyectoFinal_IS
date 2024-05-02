@@ -411,22 +411,18 @@ public partial class LaSurtidoraBuenPrecioIsContext : DbContext
 
             entity.HasOne(d => d.FkCategoriaNavigation).WithMany(p => p.Productos)
                 .HasForeignKey(d => d.FkCategoria)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Productos_Categorias");
 
             entity.HasOne(d => d.FkMarcaNavigation).WithMany(p => p.Productos)
                 .HasForeignKey(d => d.FkMarca)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Productos_Marcas");
 
             entity.HasOne(d => d.FkPresentacionNavigation).WithMany(p => p.Productos)
                 .HasForeignKey(d => d.FkPresentacion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Productos_Presentacion");
 
             entity.HasOne(d => d.FkUnidadMedidaNavigation).WithMany(p => p.Productos)
                 .HasForeignKey(d => d.FkUnidadMedida)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Productos_Unidades_medidas");
         });
 

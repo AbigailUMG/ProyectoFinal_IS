@@ -26,7 +26,7 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet]
-        [Route("Lista")]
+        [Route("Lista-Activados")]
 
         public IActionResult ListaMarca()
         {

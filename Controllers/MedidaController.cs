@@ -23,7 +23,7 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet]
-        [Route("Lista")]
+        [Route("Lista-Activados")]
 
 
         public IActionResult ListaMedida()
@@ -41,6 +41,29 @@ namespace BackendApi.Controllers
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = medidas});
+            }
+
+        }
+
+        [HttpGet]
+        [Route("Lista-Desactivados")]
+
+
+        public IActionResult ListaMedidaNulos()
+        {
+            List<UnidadesMedida> medidas = new List<UnidadesMedida>();
+
+            try
+            {
+                medidas = _DBLaSurtidora.UnidadesMedidas.Where(m => m.Estado == false).ToList();
+
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = medidas });
+
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = medidas });
             }
 
         }
@@ -119,11 +142,34 @@ namespace BackendApi.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("Estado")]
+        public IActionResult Desactivar(UnidadesMedida unidadesMedida)
+        {
+            UnidadesMedida Ounidades = _DBLaSurtidora.UnidadesMedidas.Find(unidadesMedida.IdMedicion);
+            if (Ounidades == null)
+            {
+                return BadRequest("Unidades de medida no encontrado");
+            }
+            try
+            {
+                Ounidades.Estado = unidadesMedida.Estado;
+                _DBLaSurtidora.UnidadesMedidas.Update(Ounidades);
+                _DBLaSurtidora.SaveChanges();
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Unidades cambio de estado Exitosamente" });
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { ex.Message });
+            }
+        }
 
 
 
 
-    
+
+
 
         //[HttpDelete]
         //[Route("Eliminar/{IdMedida:int}")]

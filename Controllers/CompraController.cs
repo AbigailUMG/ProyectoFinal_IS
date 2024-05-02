@@ -24,16 +24,34 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet]
-        [Route("Lista")]
-
-
+        [Route("Lista-Activados")]
         public IActionResult ListaCompra()
         {
             List<Compra> Ocompras = new List<Compra>();
 
             try
             {
-                Ocompras = _DBLaSurtidora.Compras.ToList();
+                Ocompras = _DBLaSurtidora.Compras.Where(m => m.Estado == true).ToList();
+
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = Ocompras });
+
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = Ocompras });
+            }
+
+        }
+         [HttpGet]
+        [Route("Lista-desactivados")]
+        public IActionResult ListaCompraNulos()
+        {
+            List<Compra> Ocompras = new List<Compra>();
+
+            try
+            {
+                Ocompras = _DBLaSurtidora.Compras.Where(m => m.Estado == false).ToList();
 
                 return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = Ocompras });
 
@@ -79,6 +97,7 @@ namespace BackendApi.Controllers
 
             try
             {
+                 compra.Estado = true;
                 _DBLaSurtidora.Compras.Add(compra);
                 _DBLaSurtidora.SaveChanges();
 
@@ -121,32 +140,55 @@ namespace BackendApi.Controllers
             }
         }
 
-
-        [HttpDelete]
-        [Route("Eliminar/{IdCompra:int}")]
-
-        public IActionResult Eliminar(int IdCompra)
+        [HttpPut]
+        [Route("Estado")]
+        public IActionResult Desactivar(Compra compra)
         {
-            Compra Ocompra = _DBLaSurtidora.Compras.Find(IdCompra);
-
+            Compra Ocompra = _DBLaSurtidora.Compras.Find(compra.IdCompra);
+         
             if (Ocompra == null)
             {
                 return BadRequest("Compra no encontrado");
             }
-
             try
             {
-                _DBLaSurtidora.Compras.Remove(Ocompra);
+                Ocompra.Estado = compra.Estado;
+                _DBLaSurtidora.Compras.Update(Ocompra);
                 _DBLaSurtidora.SaveChanges();
-
-
-                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Compra eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Compra cambio de estado Exitosamente" });
             }
+
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ex.Message });
             }
-
         }
+
+        // [HttpDelete]
+        // [Route("Eliminar/{IdCompra:int}")]
+
+        // public IActionResult Eliminar(int IdCompra)
+        // {
+        //     Compra Ocompra = _DBLaSurtidora.Compras.Find(IdCompra);
+
+        //     if (Ocompra == null)
+        //     {
+        //         return BadRequest("Compra no encontrado");
+        //     }
+
+        //     try
+        //     {
+        //         _DBLaSurtidora.Compras.Remove(Ocompra);
+        //         _DBLaSurtidora.SaveChanges();
+
+
+        //         return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Compra eliminado exitosamente" });
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+        //     }
+
+        // }
     }
 }

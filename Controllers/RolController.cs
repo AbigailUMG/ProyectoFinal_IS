@@ -24,7 +24,7 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet]
-        [Route("Lista")]
+        [Route("Lista-Activados")]
 
        public IActionResult ListaRol()
         {
@@ -32,7 +32,7 @@ namespace BackendApi.Controllers
 
             try
             {
-                rol = _DBLaSurtidora.Rols.ToList();
+                rol = _DBLaSurtidora.Rols.Where(m => m.Estado == true).ToList();
 
                 return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = rol });
 
@@ -45,6 +45,27 @@ namespace BackendApi.Controllers
 
         }
 
+        [HttpGet]
+        [Route("Lista-desactivados")]
+
+       public IActionResult ListaRolNulos()
+        {
+            List<Rol> rol = new List<Rol>();
+
+            try
+            {
+                rol = _DBLaSurtidora.Rols.Where(m => m.Estado == false).ToList();
+
+                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = rol });
+
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = rol });
+            }
+
+        }
         [HttpGet]
         [Route("Obtener/{IdRol:int}")]
         public IActionResult Obtener(int IdRol)
@@ -75,6 +96,7 @@ namespace BackendApi.Controllers
         {
             try
             {
+                rol.Estado= true;
                 _DBLaSurtidora.Rols.Add(rol);
                 _DBLaSurtidora.SaveChanges();   
 
@@ -121,32 +143,55 @@ namespace BackendApi.Controllers
             }
         }
 
-        [HttpDelete]
-        [Route("Eliminar/{IdRol:int}")]
-
-        public IActionResult Eliminar(int IdRol)
+        [HttpPut]
+        [Route("Estado")]
+        public IActionResult Desactivar(Rol rol)
         {
-            Rol ORol = _DBLaSurtidora.Rols.Find(IdRol);
-
-            if (ORol == null)
+            Rol Orol = _DBLaSurtidora.Rols.Find(rol.IdRol);
+            if (Orol == null)
             {
                 return BadRequest("Rol no encontrado");
             }
-
             try
             {
-                _DBLaSurtidora.Rols.Remove(ORol);
+                Orol.Estado = rol.Estado;
+                _DBLaSurtidora.Rols.Update(Orol);
                 _DBLaSurtidora.SaveChanges();
-
-
-                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Rol eliminado exitosamente" });
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Rol cambio de estado Exitosamente" });
             }
+
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { ex.Message });
             }
-
         }
+
+        // [HttpDelete]
+        // [Route("Eliminar/{IdRol:int}")]
+
+        // public IActionResult Eliminar(int IdRol)
+        // {
+        //     Rol ORol = _DBLaSurtidora.Rols.Find(IdRol);
+
+        //     if (ORol == null)
+        //     {
+        //         return BadRequest("Rol no encontrado");
+        //     }
+
+        //     try
+        //     {
+        //         _DBLaSurtidora.Rols.Remove(ORol);
+        //         _DBLaSurtidora.SaveChanges();
+
+
+        //         return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Rol eliminado exitosamente" });
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message });
+        //     }
+
+        // }
 
 
 

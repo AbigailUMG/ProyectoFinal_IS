@@ -84,19 +84,31 @@ namespace BackendApi.Controllers
 
             if (Ocredencial == null)
             {
-                return BadRequest("credencial no encontrado");
+                return StatusCode(StatusCodes.Status200OK, new
+                {
+                    mensaje = "El dato no existe",
+                    ok = false
+                });
             }
 
             try
             {
                 Ocredencial = _DBLaSurtidora.Credenciales.Where(p => p.IdCredenciales == IdCredencial).FirstOrDefault();
-
-                return StatusCode(StatusCodes.Status200OK, new { ok = true, mensaje = "Datos enviados correctamente", response = Ocredencial });
+                var DatosRol = _DBLaSurtidora.Rols.Where(p => p.IdRol == Ocredencial.FkRol).FirstOrDefault();
+                var DatosUsiario = _DBLaSurtidora.Usuarios.Where(p => p.IdUsuario == Ocredencial.FkUsuario).FirstOrDefault();
+                return StatusCode(StatusCodes.Status200OK, new
+                {
+                    mensaje = "Dato encotrado con exito",
+                    ok = false,
+                    response = Ocredencial,
+                    nombreUsuario = $"{DatosUsiario.PrimerNombre} {DatosUsiario.PrimerApellido}",
+                    nombreRol = DatosRol.NombrePuesto,
+                });
             }
 
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { ok = false, mensaje = ex.Message, response = Ocredencial });
+                return StatusCode(StatusCodes.Status404NotFound, new { mensaje = ex.Message, response = Ocredencial });
             }
         }
 
@@ -145,9 +157,15 @@ namespace BackendApi.Controllers
             }
             try
             {
+
                 Ocredenciale.Username = credenciale.Username is null ? Ocredenciale.Username : credenciale.Username;
-                Ocredenciale.Password = credenciale.Password is null ? Ocredenciale.Password : credenciale.Password;
+
+                string ContraEncrip = Encriptacion.EncripContra(credenciale.Password);
+
+                Ocredenciale.Password = credenciale.Password is null ? Ocredenciale.Password : ContraEncrip;
+
                 Ocredenciale.Estado = credenciale.Estado is null ? Ocredenciale.Estado : credenciale.Estado;
+
 
                 _DBLaSurtidora.Credenciales.Update(Ocredenciale);
                 _DBLaSurtidora.SaveChanges();
