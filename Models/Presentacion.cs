@@ -21,3 +21,5 @@ public partial class Presentacion
     [JsonIgnore]
     public virtual ICollection<Producto> Productos { get; set; } = new List<Producto>();
 }
+
+

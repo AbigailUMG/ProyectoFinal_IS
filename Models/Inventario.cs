@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BackendApi.Models;
 
@@ -32,5 +33,6 @@ public partial class Inventario
 
     public decimal? PrecioVenta { get; set; }
 
+    [JsonIgnore]
     public virtual Producto? FkProducto2Navigation { get; set; }
 }
